@@ -10,8 +10,8 @@
   },
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
-    "build:esm": "tsc -p ./tsconfig.esm.json",
-    "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "build:esm": "yarn tsc -p ./tsconfig.esm.json",
+    "build:cjs": "yarn tsc -p ./tsconfig.cjs.json",
     "clear": "rm -rf ./lib ./cjs ./coverage",
     "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "tslint -c ./tslint.json \"src/**/*\"",
@@ -19,7 +19,8 @@
     "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "postinstall": "yarn build"
   },
   "repository": {
     "type": "git",
@@ -48,11 +49,11 @@
     "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.4.5"
+    "tslint-config-prettier": "^1.18.0"
   },
   "dependencies": {
     "commander": "^2.20.0",
-    "globby": "^9.2.0"
+    "globby": "^9.2.0",
+    "typescript": "^3.4.5"
   }
 }
